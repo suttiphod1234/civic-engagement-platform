@@ -43,7 +43,7 @@ st.markdown("""
     
     /* Headings - Clean & Bold */
     h1 {
-        color: #0F172A !important;
+        color: #334155 !important;
         font-family: 'Inter', sans-serif;
         font-weight: 800 !important;
         font-size: 2.5rem !important;
@@ -52,7 +52,7 @@ st.markdown("""
     }
     
     h2 {
-        color: #1E293B !important;
+        color: #475569 !important;
         font-family: 'Inter', sans-serif;
         font-weight: 700 !important;
         font-size: 1.75rem !important;
@@ -60,7 +60,7 @@ st.markdown("""
     }
     
     h3 {
-        color: #334155 !important;
+        color: #64748B !important;
         font-family: 'Inter', sans-serif;
         font-weight: 600 !important;
         font-size: 1.25rem !important;
@@ -77,7 +77,7 @@ st.markdown("""
     /* Metrics Cards - Colorful & Clean */
     [data-testid="stMetricValue"] {
         font-size: 2.5rem !important;
-        color: #0F172A !important;
+        color: #1E293B !important;
         font-weight: 800 !important;
     }
     
