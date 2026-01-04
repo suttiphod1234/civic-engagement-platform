@@ -16,80 +16,124 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- CUSTOM CSS (PREMIUM UI) ---
+# --- CUSTOM CSS (CLEAN LIGHT UI) ---
 st.markdown("""
 <style>
     /* Main Background & Text */
     .stApp {
-        background-color: #0E1117;
-        color: #FAFAFA;
+        background-color: #FFFFFF;
+        color: #1F2937;
     }
     
     /* Sidebar */
     [data-testid="stSidebar"] {
-        background-color: #161B22;
-        border-right: 1px solid #30363D;
+        background-color: #F9FAFB;
+        border-right: 2px solid #E5E7EB;
     }
     
     /* Headings */
-    h1, h2, h3 {
-        color: #58A6FF !important;
+    h1 {
+        color: #111827 !important;
         font-family: 'Segoe UI', sans-serif;
+        font-weight: 700;
+    }
+    
+    h2, h3 {
+        color: #374151 !important;
+        font-family: 'Segoe UI', sans-serif;
+        font-weight: 600;
     }
     
     /* Metrics Cards */
     [data-testid="stMetricValue"] {
         font-size: 2.5rem !important;
-        color: #FAFAFA;
+        color: #111827;
+        font-weight: 700;
     }
     [data-testid="stMetricLabel"] {
-        color: #8B949E;
+        color: #6B7280;
+        font-weight: 500;
+        font-size: 0.95rem;
     }
-    
-    /* Custom Card Container */
-    .metric-card {
-        background-color: #161B22;
-        padding: 20px;
-        border-radius: 10px;
-        border: 1px solid #30363D;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        text-align: center;
+    [data-testid="stMetricDelta"] {
+        font-size: 0.9rem;
     }
     
     /* Buttons */
     .stButton>button {
-        background-color: #238636;
+        background-color: #2563EB;
         color: white;
         border: none;
-        border-radius: 6px;
+        border-radius: 8px;
         font-weight: 600;
-        transition: all 0.3s;
+        padding: 0.5rem 1rem;
+        transition: all 0.2s;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
     .stButton>button:hover {
-        background-color: #2EA043;
-        box-shadow: 0 0 10px rgba(46, 160, 67, 0.5);
+        background-color: #1D4ED8;
+        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+        transform: translateY(-1px);
     }
     
-    /* Alerts */
-    .stAlert {
-        background-color: #161B22;
-        border: 1px solid #30363D;
-        color: #FAFAFA;
+    /* Form Elements */
+    .stTextInput>div>div>input, 
+    .stTextArea>div>div>textarea, 
+    .stSelectbox>div>div>select,
+    .stNumberInput>div>div>input {
+        background-color: #FFFFFF;
+        color: #111827;
+        border: 2px solid #E5E7EB;
+        border-radius: 6px;
+        font-size: 0.95rem;
+    }
+    
+    .stTextInput>div>div>input:focus, 
+    .stTextArea>div>div>textarea:focus, 
+    .stSelectbox>div>div>select:focus,
+    .stNumberInput>div>div>input:focus {
+        border-color: #2563EB;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
     
     /* Tables */
     .dataframe {
         font-size: 0.9rem;
+        border: 1px solid #E5E7EB;
     }
     
-    /* Form styling */
-    .stTextInput>div>div>input, .stTextArea>div>div>textarea, .stSelectbox>div>div>select {
-        background-color: #161B22;
-        color: #FAFAFA;
-        border: 1px solid #30363D;
+    /* Dividers */
+    hr {
+        border-color: #E5E7EB;
+    }
+    
+    /* Success/Error/Info Messages */
+    .stSuccess {
+        background-color: #D1FAE5;
+        color: #065F46;
+        border-left: 4px solid #10B981;
+    }
+    
+    .stError {
+        background-color: #FEE2E2;
+        color: #991B1B;
+        border-left: 4px solid #EF4444;
+    }
+    
+    .stInfo {
+        background-color: #DBEAFE;
+        color: #1E40AF;
+        border-left: 4px solid #3B82F6;
+    }
+    
+    .stWarning {
+        background-color: #FEF3C7;
+        color: #92400E;
+        border-left: 4px solid #F59E0B;
     }
 </style>
 """, unsafe_allow_html=True)
+
 
 # --- DATA PERSISTENCE FUNCTIONS ---
 DATA_DIR = "campaign_data"
@@ -278,18 +322,26 @@ if check_password():
         with c1:
             # Styled Bar Chart
             fig_bar = px.bar(ground_df, x='Zone', y='Swing_Votes', color='Status', 
-                             color_discrete_map={'Green': '#2EA043', 'Yellow': '#D29922', 'Red': '#F85149'},
-                             title="Vote Swing by Zone", template="plotly_dark")
-            fig_bar.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
+                             color_discrete_map={'Green': '#10B981', 'Yellow': '#F59E0B', 'Red': '#EF4444'},
+                             title="Vote Swing by Zone")
+            fig_bar.update_layout(
+                paper_bgcolor="white",
+                plot_bgcolor="white",
+                font=dict(color="#111827"),
+                title_font=dict(size=16, color="#111827", family="Segoe UI")
+            )
             st.plotly_chart(fig_bar, use_container_width=True)
 
         with c2:
             # Styled Pie Chart
             fig_pie = px.pie(ground_df, names='Status', title="Risk Distribution",
                              color='Status',
-                             color_discrete_map={'Green': '#2EA043', 'Yellow': '#D29922', 'Red': '#F85149'},
-                             template="plotly_dark")
-            fig_pie.update_layout(paper_bgcolor="rgba(0,0,0,0)")
+                             color_discrete_map={'Green': '#10B981', 'Yellow': '#F59E0B', 'Red': '#EF4444'})
+            fig_pie.update_layout(
+                paper_bgcolor="white",
+                font=dict(color="#111827"),
+                title_font=dict(size=16, color="#111827", family="Segoe UI")
+            )
             st.plotly_chart(fig_pie, use_container_width=True)
         
         # Recent Activity
@@ -345,9 +397,13 @@ if check_password():
                 status_counts = today_data['Status'].value_counts()
                 fig_mini = px.pie(values=status_counts.values, names=status_counts.index,
                                  color=status_counts.index,
-                                 color_discrete_map={'Green': '#2EA043', 'Yellow': '#D29922', 'Red': '#F85149'},
-                                 template="plotly_dark")
-                fig_mini.update_layout(paper_bgcolor="rgba(0,0,0,0)", height=250)
+                                 color_discrete_map={'Green': '#10B981', 'Yellow': '#F59E0B', 'Red': '#EF4444'})
+                fig_mini.update_layout(
+                    paper_bgcolor="white",
+                    font=dict(color="#111827"),
+                    height=250,
+                    showlegend=True
+                )
                 st.plotly_chart(fig_mini, use_container_width=True)
             else:
                 st.info("No reports submitted today yet.")
@@ -386,9 +442,13 @@ if check_password():
             })
             fig_comp = px.bar(comparison_data, x='Category', y='Mentions',
                              color='Category',
-                             color_discrete_map={'Our Campaign': '#2EA043', 'Competitors': '#F85149'},
-                             template="plotly_dark")
-            fig_comp.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
+                             color_discrete_map={'Our Campaign': '#10B981', 'Competitors': '#EF4444'})
+            fig_comp.update_layout(
+                paper_bgcolor="white",
+                plot_bgcolor="white",
+                font=dict(color="#111827"),
+                showlegend=False
+            )
             st.plotly_chart(fig_comp, use_container_width=True)
         
         with c2:
@@ -396,9 +456,11 @@ if check_password():
             sentiment_counts = social_df['Sentiment'].value_counts()
             fig_sent = px.pie(values=sentiment_counts.values, names=sentiment_counts.index,
                              color=sentiment_counts.index,
-                             color_discrete_map={'Positive': '#2EA043', 'Neutral': '#D29922', 'Negative': '#F85149'},
-                             template="plotly_dark")
-            fig_sent.update_layout(paper_bgcolor="rgba(0,0,0,0)")
+                             color_discrete_map={'Positive': '#10B981', 'Neutral': '#F59E0B', 'Negative': '#EF4444'})
+            fig_sent.update_layout(
+                paper_bgcolor="white",
+                font=dict(color="#111827")
+            )
             st.plotly_chart(fig_sent, use_container_width=True)
         
         st.divider()
