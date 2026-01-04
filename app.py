@@ -16,170 +16,199 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- CUSTOM CSS (CLEAN LIGHT UI) ---
+# --- CUSTOM CSS (CLEAN MINIMAL UI) ---
 st.markdown("""
 <style>
+    /* Import Google Font */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    
     /* Main Background & Text */
     .stApp {
-        background-color: #FFFFFF;
-        color: #000000;
-        font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+        color: #1E293B;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
     
-    /* Sidebar */
+    /* Sidebar - Soft Blue */
     [data-testid="stSidebar"] {
-        background-color: #F3F4F6;
-        border-right: 2px solid #D1D5DB;
+        background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+        border-right: 1px solid #CBD5E1;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
     }
     
     [data-testid="stSidebar"] * {
-        color: #000000 !important;
+        color: #334155 !important;
         font-weight: 500;
     }
     
-    /* Headings - Extra Bold */
+    /* Headings - Clean & Bold */
     h1 {
-        color: #000000 !important;
-        font-family: 'Inter', 'Segoe UI', sans-serif;
+        color: #0F172A !important;
+        font-family: 'Inter', sans-serif;
         font-weight: 800 !important;
         font-size: 2.5rem !important;
-        letter-spacing: -0.5px;
+        letter-spacing: -1px;
+        margin-bottom: 0.5rem !important;
     }
     
     h2 {
-        color: #111827 !important;
-        font-family: 'Inter', 'Segoe UI', sans-serif;
+        color: #1E293B !important;
+        font-family: 'Inter', sans-serif;
         font-weight: 700 !important;
-        font-size: 1.8rem !important;
+        font-size: 1.75rem !important;
+        margin-top: 1.5rem !important;
     }
     
     h3 {
-        color: #1F2937 !important;
-        font-family: 'Inter', 'Segoe UI', sans-serif;
-        font-weight: 700 !important;
-        font-size: 1.3rem !important;
+        color: #334155 !important;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600 !important;
+        font-size: 1.25rem !important;
+        margin-top: 1rem !important;
     }
     
-    /* Regular text - stronger */
+    /* Regular text */
     p, div, span, label {
-        color: #000000 !important;
+        color: #475569 !important;
         font-weight: 500 !important;
+        line-height: 1.6;
     }
     
-    /* Metrics Cards - Very Bold */
+    /* Metrics Cards - Colorful & Clean */
     [data-testid="stMetricValue"] {
-        font-size: 2.8rem !important;
-        color: #000000 !important;
-        font-weight: 900 !important;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        font-size: 2.5rem !important;
+        color: #0F172A !important;
+        font-weight: 800 !important;
     }
+    
     [data-testid="stMetricLabel"] {
-        color: #374151 !important;
-        font-weight: 700 !important;
-        font-size: 1rem !important;
+        color: #64748B !important;
+        font-weight: 600 !important;
+        font-size: 0.875rem !important;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 1px;
     }
+    
     [data-testid="stMetricDelta"] {
-        font-size: 1rem !important;
+        font-size: 0.875rem !important;
         font-weight: 600 !important;
     }
     
-    /* Buttons - Bold */
+    /* Buttons - Soft Blue */
     .stButton>button {
-        background-color: #1D4ED8;
+        background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
         color: white !important;
         border: none;
-        border-radius: 8px;
-        font-weight: 700 !important;
-        font-size: 1rem !important;
+        border-radius: 12px;
+        font-weight: 600 !important;
+        font-size: 0.95rem !important;
         padding: 0.75rem 1.5rem;
-        transition: all 0.2s;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
     }
+    
     .stButton>button:hover {
-        background-color: #1E40AF;
-        box-shadow: 0 4px 8px rgba(29, 78, 216, 0.4);
+        background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
         transform: translateY(-2px);
     }
     
-    /* Form Elements - Darker borders and text */
+    /* Form Elements - Clean & Minimal */
     .stTextInput>div>div>input, 
     .stTextArea>div>div>textarea, 
     .stSelectbox>div>div>select,
     .stNumberInput>div>div>input {
         background-color: #FFFFFF;
-        color: #000000 !important;
-        border: 2px solid #9CA3AF !important;
-        border-radius: 6px;
-        font-size: 1rem !important;
+        color: #1E293B !important;
+        border: 2px solid #E2E8F0 !important;
+        border-radius: 10px;
+        font-size: 0.95rem !important;
         font-weight: 500 !important;
+        padding: 0.5rem !important;
+        transition: all 0.2s ease;
     }
     
     .stTextInput>div>div>input:focus, 
     .stTextArea>div>div>textarea:focus, 
     .stSelectbox>div>div>select:focus,
     .stNumberInput>div>div>input:focus {
-        border-color: #1D4ED8 !important;
-        box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.2);
+        border-color: #3B82F6 !important;
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        background-color: #F8FAFC;
     }
     
-    /* Tables - Bold headers */
+    /* Tables - Clean Design */
     .dataframe {
-        font-size: 0.95rem !important;
-        border: 2px solid #D1D5DB;
+        font-size: 0.9rem !important;
+        border: 1px solid #E2E8F0;
+        border-radius: 8px;
+        overflow: hidden;
     }
     
     .dataframe th {
-        background-color: #F3F4F6 !important;
-        color: #000000 !important;
+        background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%) !important;
+        color: #334155 !important;
         font-weight: 700 !important;
-        border-bottom: 2px solid #9CA3AF !important;
+        border-bottom: 2px solid #CBD5E1 !important;
+        padding: 0.75rem !important;
     }
     
     .dataframe td {
-        color: #000000 !important;
+        color: #475569 !important;
         font-weight: 500 !important;
+        padding: 0.75rem !important;
+        border-bottom: 1px solid #F1F5F9 !important;
     }
     
-    /* Dividers - Darker */
+    /* Dividers - Soft */
     hr {
-        border-color: #9CA3AF !important;
-        border-width: 2px !important;
+        border-color: #E2E8F0 !important;
+        border-width: 1px !important;
+        margin: 2rem 0 !important;
     }
     
-    /* Success/Error/Info Messages - Bold text */
+    /* Success Message - Green */
     .stSuccess {
-        background-color: #D1FAE5;
+        background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
         color: #065F46 !important;
-        border-left: 5px solid #10B981;
+        border-left: 4px solid #10B981;
+        border-radius: 8px;
         font-weight: 600 !important;
+        padding: 1rem !important;
     }
     
+    /* Error Message - Red */
     .stError {
-        background-color: #FEE2E2;
+        background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
         color: #991B1B !important;
-        border-left: 5px solid #EF4444;
+        border-left: 4px solid #EF4444;
+        border-radius: 8px;
         font-weight: 600 !important;
+        padding: 1rem !important;
     }
     
+    /* Info Message - Blue */
     .stInfo {
-        background-color: #DBEAFE;
+        background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
         color: #1E40AF !important;
-        border-left: 5px solid #3B82F6;
+        border-left: 4px solid #3B82F6;
+        border-radius: 8px;
         font-weight: 600 !important;
+        padding: 1rem !important;
     }
     
+    /* Warning Message - Amber */
     .stWarning {
-        background-color: #FEF3C7;
+        background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
         color: #92400E !important;
-        border-left: 5px solid #F59E0B;
+        border-left: 4px solid #F59E0B;
+        border-radius: 8px;
         font-weight: 600 !important;
+        padding: 1rem !important;
     }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
