@@ -16,115 +16,115 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- CUSTOM CSS (CLEAN MINIMAL UI) ---
+# --- CUSTOM CSS (GREEN THEME) ---
 st.markdown("""
 <style>
     /* Import Google Font */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap');
     
-    /* Main Background & Text */
+    /* Main Background - Light Green */
     .stApp {
-        background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
-        color: #1E293B;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+        color: #000000;
+        font-family: 'Sarabun', 'Inter', sans-serif;
     }
     
-    /* Sidebar - Soft Blue */
+    /* Sidebar - White with Green Shadow */
     [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
-        border-right: 1px solid #CBD5E1;
-        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+        background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 100%);
+        border-right: 2px solid #BBF7D0;
+        box-shadow: 2px 0 12px rgba(34, 197, 94, 0.1);
     }
     
     [data-testid="stSidebar"] * {
-        color: #334155 !important;
-        font-weight: 500;
+        color: #166534 !important;
+        font-weight: 600;
     }
     
-    /* Headings - Clean & Bold */
+    /* Headings - Dark Green/Black */
     h1 {
-        color: #334155 !important;
-        font-family: 'Inter', sans-serif;
+        color: #000000 !important;
+        font-family: 'Sarabun', sans-serif;
         font-weight: 800 !important;
         font-size: 2.5rem !important;
-        letter-spacing: -1px;
+        letter-spacing: -0.5px;
         margin-bottom: 0.5rem !important;
     }
     
     h2 {
-        color: #475569 !important;
-        font-family: 'Inter', sans-serif;
+        color: #052e16 !important;
+        font-family: 'Sarabun', sans-serif;
         font-weight: 700 !important;
         font-size: 1.75rem !important;
         margin-top: 1.5rem !important;
     }
     
     h3 {
-        color: #64748B !important;
-        font-family: 'Inter', sans-serif;
-        font-weight: 600 !important;
+        color: #14532d !important;
+        font-family: 'Sarabun', sans-serif;
+        font-weight: 700 !important;
         font-size: 1.25rem !important;
         margin-top: 1rem !important;
     }
     
-    /* Regular text */
+    /* Regular text - Black */
     p, div, span, label {
-        color: #475569 !important;
+        color: #000000 !important;
         font-weight: 500 !important;
-        line-height: 1.6;
+        line-height: 1.7;
     }
     
-    /* Metrics Cards - Colorful & Clean */
+    /* Metrics Cards - Black Bold */
     [data-testid="stMetricValue"] {
         font-size: 2.5rem !important;
-        color: #1E293B !important;
+        color: #000000 !important;
         font-weight: 800 !important;
     }
     
     [data-testid="stMetricLabel"] {
-        color: #64748B !important;
-        font-weight: 600 !important;
-        font-size: 0.875rem !important;
+        color: #166534 !important;
+        font-weight: 700 !important;
+        font-size: 0.95rem !important;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 0.5px;
     }
     
     [data-testid="stMetricDelta"] {
-        font-size: 0.875rem !important;
+        font-size: 0.9rem !important;
         font-weight: 600 !important;
     }
     
-    /* Buttons - Soft Blue */
+    /* Buttons - Green Gradient */
     .stButton>button {
-        background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+        background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
         color: white !important;
         border: none;
         border-radius: 12px;
-        font-weight: 600 !important;
-        font-size: 0.95rem !important;
+        font-weight: 700 !important;
+        font-size: 1rem !important;
         padding: 0.75rem 1.5rem;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
     }
     
     .stButton>button:hover {
-        background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
-        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);
+        box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
         transform: translateY(-2px);
     }
     
-    /* Form Elements - Clean & Minimal */
+    /* Form Elements - Green-Gray */
     .stTextInput>div>div>input, 
     .stTextArea>div>div>textarea, 
     .stSelectbox>div>div>select,
     .stNumberInput>div>div>input {
-        background-color: #FFFFFF;
-        color: #1E293B !important;
-        border: 2px solid #E2E8F0 !important;
+        background-color: #F0FDF4;
+        color: #000000 !important;
+        border: 2px solid #BBF7D0 !important;
         border-radius: 10px;
-        font-size: 0.95rem !important;
+        font-size: 1rem !important;
         font-weight: 500 !important;
-        padding: 0.5rem !important;
+        padding: 0.6rem !important;
         transition: all 0.2s ease;
     }
     
@@ -132,38 +132,38 @@ st.markdown("""
     .stTextArea>div>div>textarea:focus, 
     .stSelectbox>div>div>select:focus,
     .stNumberInput>div>div>input:focus {
-        border-color: #3B82F6 !important;
-        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
-        background-color: #F8FAFC;
+        border-color: #22C55E !important;
+        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
+        background-color: #FFFFFF;
     }
     
-    /* Tables - Clean Design */
+    /* Tables - Green Theme */
     .dataframe {
-        font-size: 0.9rem !important;
-        border: 1px solid #E2E8F0;
-        border-radius: 8px;
+        font-size: 0.95rem !important;
+        border: 2px solid #BBF7D0;
+        border-radius: 10px;
         overflow: hidden;
     }
     
     .dataframe th {
-        background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%) !important;
-        color: #334155 !important;
+        background: linear-gradient(135deg, #D1FAE5 0%, #BBF7D0 100%) !important;
+        color: #000000 !important;
         font-weight: 700 !important;
-        border-bottom: 2px solid #CBD5E1 !important;
+        border-bottom: 2px solid #86EFAC !important;
         padding: 0.75rem !important;
     }
     
     .dataframe td {
-        color: #475569 !important;
+        color: #000000 !important;
         font-weight: 500 !important;
         padding: 0.75rem !important;
-        border-bottom: 1px solid #F1F5F9 !important;
+        border-bottom: 1px solid #F0FDF4 !important;
     }
     
-    /* Dividers - Soft */
+    /* Dividers - Green */
     hr {
-        border-color: #E2E8F0 !important;
-        border-width: 1px !important;
+        border-color: #BBF7D0 !important;
+        border-width: 2px !important;
         margin: 2rem 0 !important;
     }
     
@@ -171,8 +171,8 @@ st.markdown("""
     .stSuccess {
         background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
         color: #065F46 !important;
-        border-left: 4px solid #10B981;
-        border-radius: 8px;
+        border-left: 5px solid #10B981;
+        border-radius: 10px;
         font-weight: 600 !important;
         padding: 1rem !important;
     }
@@ -181,8 +181,8 @@ st.markdown("""
     .stError {
         background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
         color: #991B1B !important;
-        border-left: 4px solid #EF4444;
-        border-radius: 8px;
+        border-left: 5px solid #EF4444;
+        border-radius: 10px;
         font-weight: 600 !important;
         padding: 1rem !important;
     }
@@ -191,8 +191,8 @@ st.markdown("""
     .stInfo {
         background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
         color: #1E40AF !important;
-        border-left: 4px solid #3B82F6;
-        border-radius: 8px;
+        border-left: 5px solid #3B82F6;
+        border-radius: 10px;
         font-weight: 600 !important;
         padding: 1rem !important;
     }
@@ -201,13 +201,14 @@ st.markdown("""
     .stWarning {
         background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
         color: #92400E !important;
-        border-left: 4px solid #F59E0B;
-        border-radius: 8px;
+        border-left: 5px solid #F59E0B;
+        border-radius: 10px;
         font-weight: 600 !important;
         padding: 1rem !important;
     }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
