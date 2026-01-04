@@ -1,0 +1,12 @@
+Timestamp,Zone,Sub_District,Status,Swing_Votes,Notes,Reporter
+2026-01-05 02:10:29,Zone C,Sub-3,Green,405,Sample data,System
+2026-01-05 02:10:29,Zone B,Sub-1,Yellow,427,Sample data,System
+2026-01-05 02:10:29,Zone B,Sub-5,Green,395,Sample data,System
+2026-01-05 02:10:29,Zone B,Sub-2,Green,995,Sample data,System
+2026-01-05 02:10:29,Zone B,Sub-5,Yellow,689,Sample data,System
+2026-01-05 02:10:29,Zone A,Sub-5,Green,401,Sample data,System
+2026-01-05 02:10:29,Zone B,Sub-2,Red,543,Sample data,System
+2026-01-05 02:10:29,Zone C,Sub-1,Yellow,565,Sample data,System
+2026-01-05 02:10:29,Zone C,Sub-2,Red,370,Sample data,System
+2026-01-05 02:10:29,Zone A,Sub-4,Red,252,Sample data,System
+2026-01-05 02:13:14,Zone A,Test Village,Yellow,500100,Testing data entry,Test User

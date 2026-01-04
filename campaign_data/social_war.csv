@@ -1,0 +1,22 @@
+Timestamp,Platform,Sentiment,Our_Mentions,Competitor_Mentions,Post_Link,Analysis
+2026-01-05 02:13:40,Twitter,Neutral,247,195,https://example.com,Sample analysis
+2026-01-05 02:13:40,TikTok,Neutral,301,488,https://example.com,Sample analysis
+2026-01-05 02:13:40,Instagram,Negative,125,352,https://example.com,Sample analysis
+2026-01-05 02:13:40,Facebook,Positive,413,126,https://example.com,Sample analysis
+2026-01-05 02:13:40,Instagram,Positive,290,202,https://example.com,Sample analysis
+2026-01-05 02:13:40,Facebook,Neutral,496,315,https://example.com,Sample analysis
+2026-01-05 02:13:40,Twitter,Positive,80,237,https://example.com,Sample analysis
+2026-01-05 02:13:40,Instagram,Neutral,482,153,https://example.com,Sample analysis
+2026-01-05 02:13:40,Twitter,Negative,83,414,https://example.com,Sample analysis
+2026-01-05 02:13:40,Twitter,Positive,300,345,https://example.com,Sample analysis
+2026-01-05 02:13:40,Facebook,Positive,446,480,https://example.com,Sample analysis
+2026-01-05 02:13:40,Twitter,Positive,66,261,https://example.com,Sample analysis
+2026-01-05 02:13:40,Facebook,Neutral,115,263,https://example.com,Sample analysis
+2026-01-05 02:13:40,Instagram,Positive,457,293,https://example.com,Sample analysis
+2026-01-05 02:13:40,Twitter,Positive,488,115,https://example.com,Sample analysis
+2026-01-05 02:13:40,Twitter,Neutral,76,100,https://example.com,Sample analysis
+2026-01-05 02:13:40,Facebook,Neutral,313,275,https://example.com,Sample analysis
+2026-01-05 02:13:40,Instagram,Positive,373,364,https://example.com,Sample analysis
+2026-01-05 02:13:40,TikTok,Positive,130,420,https://example.com,Sample analysis
+2026-01-05 02:13:40,Facebook,Negative,169,163,https://example.com,Sample analysis
+2026-01-05 02:15:43,Facebook,Positive,10,0,,Testing air war data entry
