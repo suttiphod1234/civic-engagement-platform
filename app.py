@@ -14,6 +14,70 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# --- CUSTOM CSS (PREMIUM UI) ---
+st.markdown("""
+<style>
+    /* Main Background & Text */
+    .stApp {
+        background-color: #0E1117;
+        color: #FAFAFA;
+    }
+    
+    /* Sidebar */
+    [data-testid="stSidebar"] {
+        background-color: #161B22;
+        border-right: 1px solid #30363D;
+    }
+    
+    /* Headings */
+    h1, h2, h3 {
+        color: #58A6FF !important;
+        font-family: 'Segoe UI', sans-serif;
+    }
+    
+    /* Metrics Cards */
+    [data-testid="stMetricValue"] {
+        font-size: 2.5rem !important;
+        color: #FAFAFA;
+    }
+    [data-testid="stMetricLabel"] {
+        color: #8B949E;
+    }
+    
+    /* Custom Card Container */
+    .metric-card {
+        background-color: #161B22;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #30363D;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        text-align: center;
+    }
+    
+    /* Buttons */
+    .stButton>button {
+        background-color: #238636;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+    .stButton>button:hover {
+        background-color: #2EA043;
+        box-shadow: 0 0 10px rgba(46, 160, 67, 0.5);
+    }
+    
+    /* Alerts */
+    .stAlert {
+        background-color: #161B22;
+        border: 1px solid #30363D;
+        color: #FAFAFA;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+
 # Mock Data Generation (Simulating Google Sheets)
 def get_mock_ground_data():
     if 'ground_data' not in st.session_state:
@@ -99,35 +163,40 @@ if check_password():
     # --- 1. WAR ROOM (Dashboard) ---
     if menu == "🏠 War Room (Dashboard)":
         st.title("🏠 Strategy War Room")
-        st.markdown("### Real-time Campaign Overview")
+        st.markdown("<h3 style='color: #8B949E; margin-top: -20px;'>Real-time Campaign Overview</h3>", unsafe_allow_html=True)
+        st.divider()
 
         ground_df = get_mock_ground_data()
         
-        # Top Metrics
+        # Top Metrics (Custom Styling)
         col1, col2, col3, col4 = st.columns(4)
         total_swing = ground_df['Swing_Votes'].sum()
         red_zones = ground_df[ground_df['Status'] == 'Red'].shape[0]
         
-        col1.metric("Total Swing Votes", f"{total_swing:,}", "12%")
-        col2.metric("Red Zones (Crictical)", f"{red_zones}", "-2")
-        col3.metric("Days Remaining", "28", "-1")
-        col4.metric("Budget Utilized", "45%", "5%")
+        col1.metric("🗳️ Total Swing Votes", f"{total_swing:,}", "12%")
+        col2.metric("🔥 Red Zones (Critical)", f"{red_zones}", "-2", delta_color="inverse")
+        col3.metric("⏳ Days Remaining", "28", "Final Stretch")
+        col4.metric("💰 Budget Utilized", "45%", "On Track")
 
         # Maps / Charts
+        st.markdown("### 📊 Tactical Analysis")
         c1, c2 = st.columns((2, 1))
         
         with c1:
-            st.subheader("Swing Votes by Zone")
+            # Styled Bar Chart
             fig_bar = px.bar(ground_df, x='Zone', y='Swing_Votes', color='Status', 
-                             color_discrete_map={'Green': 'green', 'Yellow': 'gold', 'Red': 'red'},
-                             title="Vote Distribution by Risk Level")
+                             color_discrete_map={'Green': '#2EA043', 'Yellow': '#D29922', 'Red': '#F85149'},
+                             title="Vote Swing by Zone", template="plotly_dark")
+            fig_bar.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
             st.plotly_chart(fig_bar, use_container_width=True)
 
         with c2:
-            st.subheader("Zone Status Ratio")
-            fig_pie = px.pie(ground_df, names='Status', title="Zone Status Areas",
+            # Styled Pie Chart
+            fig_pie = px.pie(ground_df, names='Status', title="Risk Distribution",
                              color='Status',
-                             color_discrete_map={'Green': 'green', 'Yellow': 'gold', 'Red': 'red'})
+                             color_discrete_map={'Green': '#2EA043', 'Yellow': '#D29922', 'Red': '#F85149'},
+                             template="plotly_dark")
+            fig_pie.update_layout(paper_bgcolor="rgba(0,0,0,0)")
             st.plotly_chart(fig_pie, use_container_width=True)
 
     # --- 2. GROUND WAR (Data Entry) ---
