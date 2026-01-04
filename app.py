@@ -22,117 +22,165 @@ st.markdown("""
     /* Main Background & Text */
     .stApp {
         background-color: #FFFFFF;
-        color: #1F2937;
+        color: #000000;
+        font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
     }
     
     /* Sidebar */
     [data-testid="stSidebar"] {
-        background-color: #F9FAFB;
-        border-right: 2px solid #E5E7EB;
+        background-color: #F3F4F6;
+        border-right: 2px solid #D1D5DB;
     }
     
-    /* Headings */
+    [data-testid="stSidebar"] * {
+        color: #000000 !important;
+        font-weight: 500;
+    }
+    
+    /* Headings - Extra Bold */
     h1 {
-        color: #111827 !important;
-        font-family: 'Segoe UI', sans-serif;
-        font-weight: 700;
-    }
-    
-    h2, h3 {
-        color: #374151 !important;
-        font-family: 'Segoe UI', sans-serif;
-        font-weight: 600;
-    }
-    
-    /* Metrics Cards */
-    [data-testid="stMetricValue"] {
+        color: #000000 !important;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        font-weight: 800 !important;
         font-size: 2.5rem !important;
-        color: #111827;
-        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
+    
+    h2 {
+        color: #111827 !important;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        font-weight: 700 !important;
+        font-size: 1.8rem !important;
+    }
+    
+    h3 {
+        color: #1F2937 !important;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        font-weight: 700 !important;
+        font-size: 1.3rem !important;
+    }
+    
+    /* Regular text - stronger */
+    p, div, span, label {
+        color: #000000 !important;
+        font-weight: 500 !important;
+    }
+    
+    /* Metrics Cards - Very Bold */
+    [data-testid="stMetricValue"] {
+        font-size: 2.8rem !important;
+        color: #000000 !important;
+        font-weight: 900 !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     }
     [data-testid="stMetricLabel"] {
-        color: #6B7280;
-        font-weight: 500;
-        font-size: 0.95rem;
+        color: #374151 !important;
+        font-weight: 700 !important;
+        font-size: 1rem !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
     [data-testid="stMetricDelta"] {
-        font-size: 0.9rem;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
     }
     
-    /* Buttons */
+    /* Buttons - Bold */
     .stButton>button {
-        background-color: #2563EB;
-        color: white;
+        background-color: #1D4ED8;
+        color: white !important;
         border: none;
         border-radius: 8px;
-        font-weight: 600;
-        padding: 0.5rem 1rem;
+        font-weight: 700 !important;
+        font-size: 1rem !important;
+        padding: 0.75rem 1.5rem;
         transition: all 0.2s;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
     .stButton>button:hover {
-        background-color: #1D4ED8;
-        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
-        transform: translateY(-1px);
+        background-color: #1E40AF;
+        box-shadow: 0 4px 8px rgba(29, 78, 216, 0.4);
+        transform: translateY(-2px);
     }
     
-    /* Form Elements */
+    /* Form Elements - Darker borders and text */
     .stTextInput>div>div>input, 
     .stTextArea>div>div>textarea, 
     .stSelectbox>div>div>select,
     .stNumberInput>div>div>input {
         background-color: #FFFFFF;
-        color: #111827;
-        border: 2px solid #E5E7EB;
+        color: #000000 !important;
+        border: 2px solid #9CA3AF !important;
         border-radius: 6px;
-        font-size: 0.95rem;
+        font-size: 1rem !important;
+        font-weight: 500 !important;
     }
     
     .stTextInput>div>div>input:focus, 
     .stTextArea>div>div>textarea:focus, 
     .stSelectbox>div>div>select:focus,
     .stNumberInput>div>div>input:focus {
-        border-color: #2563EB;
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        border-color: #1D4ED8 !important;
+        box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.2);
     }
     
-    /* Tables */
+    /* Tables - Bold headers */
     .dataframe {
-        font-size: 0.9rem;
-        border: 1px solid #E5E7EB;
+        font-size: 0.95rem !important;
+        border: 2px solid #D1D5DB;
     }
     
-    /* Dividers */
+    .dataframe th {
+        background-color: #F3F4F6 !important;
+        color: #000000 !important;
+        font-weight: 700 !important;
+        border-bottom: 2px solid #9CA3AF !important;
+    }
+    
+    .dataframe td {
+        color: #000000 !important;
+        font-weight: 500 !important;
+    }
+    
+    /* Dividers - Darker */
     hr {
-        border-color: #E5E7EB;
+        border-color: #9CA3AF !important;
+        border-width: 2px !important;
     }
     
-    /* Success/Error/Info Messages */
+    /* Success/Error/Info Messages - Bold text */
     .stSuccess {
         background-color: #D1FAE5;
-        color: #065F46;
-        border-left: 4px solid #10B981;
+        color: #065F46 !important;
+        border-left: 5px solid #10B981;
+        font-weight: 600 !important;
     }
     
     .stError {
         background-color: #FEE2E2;
-        color: #991B1B;
-        border-left: 4px solid #EF4444;
+        color: #991B1B !important;
+        border-left: 5px solid #EF4444;
+        font-weight: 600 !important;
     }
     
     .stInfo {
         background-color: #DBEAFE;
-        color: #1E40AF;
-        border-left: 4px solid #3B82F6;
+        color: #1E40AF !important;
+        border-left: 5px solid #3B82F6;
+        font-weight: 600 !important;
     }
     
     .stWarning {
         background-color: #FEF3C7;
-        color: #92400E;
-        border-left: 4px solid #F59E0B;
+        color: #92400E !important;
+        border-left: 5px solid #F59E0B;
+        font-weight: 600 !important;
     }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # --- DATA PERSISTENCE FUNCTIONS ---
